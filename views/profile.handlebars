@@ -1,3 +1,43 @@
-{{!-- Profile Dashboard that only shows your own posts --}}
+{{!-- Form to add a new post --}}
+<section>
+<div class="container-fluid pt-3">
+  <form class="post-form">
 
+    <div class="mb-3 mx-auto" style="width: 80%">
+      <label for="title" class="form-label">Post Title</label>
+      <input type="input" class="form-control" id="title" placeholder="Title" />
+    </div>
+
+    <div class="mb-3 mx-auto" style="width: 80%">
+      <label for="content" class="form-label">Post Content</label>
+      <textarea class="form-control" id="content" rows="5"></textarea>
+    </div>
+
+    <div class="text-center mt-3">
+      <button type="submit" class="btn btn-secondary" id="newPost">Post</button>
+    </div>
+  </form>
+</div>
+</section>
+
+
+{{!-- Profile Dashboard that only shows your own posts --}}
+{{#if post.length}}
+<section>
+    <ol>
+    {{#each post as |post|}}
+
+    <li>
+        <div class="card">
+            <div class="card-body">
+                <h1><a href="/post/{{post.id}}">{{post.title}}</a></h1>
+                <p>{{post.content}}</p>
+            </div>
+        </div>
+    </li>
+
+    {{/each}}
+    </ol>
+</section>
+{{/if}}
 <script src="./js/profile.js"></script>
