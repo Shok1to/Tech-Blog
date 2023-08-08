@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('all-posts', { 
       posts, 
-      logged_in: req.session.logged_in 
+      // logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
@@ -43,7 +43,7 @@ router.get('/post/:id', async (req, res) => {
 
     res.render('post', {
       ...post,
-      logged_in: req.session.logged_in
+      // logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -68,6 +68,10 @@ router.get('/profile', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/newpost', (req, res) => {
+  res.render('newpost');
 });
 
 router.get('/login', (req, res) => {
