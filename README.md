@@ -33,7 +33,7 @@ To build a CMS-style blog site similar to a Wordpress site, where developers can
 ## Link
 [Github repository](https://github.com/Shok1to/Tech-Blog)
 
-[Deploy page]()
+[Deploy page](https://shokito-tech-blog-f234d513cdc9.herokuapp.com/)
 
 ## License
 ![MIT](https://img.shields.io/badge/license-MIT-lightgrey.png)
