@@ -2,19 +2,19 @@ const newPost = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#title').value.trim();
-  const content = document.querySelector('#content').value.trim();
+  const body = document.querySelector('#content').value.trim();
   
-  if (title && content) {
-    const response = await fetch(`/api/post`, {
+  if (title && body) {
+    const response = await fetch(`/api/posts`, {
       method: 'POST',
-      body: JSON.stringify({ title, content }),
+      body: JSON.stringify({ title, body }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/');
     } else {
       alert('Failed to create project');
     }
@@ -39,7 +39,7 @@ const delButtonHandler = async (event) => {
 };
 
 document
-  .querySelector('.new-post-form')
+  .querySelector('.post-form')
   .addEventListener('submit', newPost);
 
 document

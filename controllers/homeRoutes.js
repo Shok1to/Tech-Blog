@@ -3,6 +3,7 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
+
   try {
     // Get all projects and JOIN with user data
     const postData = await Post.findAll({
@@ -16,7 +17,7 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
-
+     console.log(posts)
     // Pass serialized data and session flag into template
     res.render('all-posts', { 
       posts, 
@@ -30,17 +31,17 @@ router.get('/', async (req, res) => {
 
 router.get('/post/:id', async (req, res) => {
   try {
-    const{ postId }  = req.params.id;
+    const postId   = req.params.id;
     const postData = await Post.findByPk(postId, {
-      include: [ User,
-        {
-          model: Comment,
-          attributes: [User],
-        },
-      ],
+      // include: [ User,
+      //   {
+      //     model: Comment,
+      //     attributes: [User],
+      //   },
+      // ],
     });
 
-    const post = projectData.get({ plain: true });
+    const post = postData.get({ plain: true });
 
     res.render('post', {
       ...post,
