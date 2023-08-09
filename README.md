@@ -20,10 +20,16 @@ To build a CMS-style blog site similar to a Wordpress site, where developers can
 - connect-session-sequelize
 
 ## Usage
+- Created function for signup and login
+<img alt src="./assets/Login.png" />
 
-<img alt src="./assets/Get-all-thoughts.png" />
+- Create a new post
+<img alt src="./assets/NewPost.png" />
 
+- Review all posts
+<img alt src="./assets/allPosts.png" />
 
+- Created logout function
 ## Link
 [Github repository](https://github.com/Shok1to/Tech-Blog)
 
